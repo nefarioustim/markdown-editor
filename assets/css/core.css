@@ -16,10 +16,33 @@ blockquote {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: "Cabin", "Helvetica Neue", arial, sans-serif;
+    margin: 1em 0;
+}
+
+h1 {
+    margin: 0.7em 0;
+    font-size: 2em;
 }
 
 h2 {
     border-bottom: 1px solid #ccc;
+    padding-bottom: 0.1em;
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.17em;
+}
+
+code {
+    background: #f8f8f8;
+    border: 1px solid #ccc;
+    padding: 1px 4px;
+    border-radius: 3px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
 }
 
 pre {
@@ -29,6 +52,21 @@ pre {
     padding: 6px 10px;
     border-radius: 3px;
     font-family: menlo, monaco, courier, monospace;
+}
+
+pre code {
+    display: inline;
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+p {
+    margin: 1em 0;
+}
+
+#wmd-preview {
+    padding-top: 0;
 }
 
 .wmd-panel {
