@@ -78,6 +78,14 @@ pre code {
     padding: 0;
 }
 
+tt, code, kbd, samp {
+    font-family: menlo, monaco, courier, monospace;
+}
+
+samp {
+    color: #008080;
+}
+
 p {
     margin: 1em 0;
 }
@@ -99,8 +107,13 @@ p {
     padding-left: 30px;
 }
 
-.wmd-button-bar {
+#wmd-button-bar {
     width: 100%;
+    position: relative;
+}
+#wmd-button-bar button {
+    position: absolute;
+    right: 0;
 }
 
 .wmd-input,
