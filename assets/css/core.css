@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-y: scroll;
+}
+
 body {
     background-color: #fff;
     font: 100%/1.4 "PT Sans", "Helvetica Neue", arial, sans-serif;
