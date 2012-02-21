@@ -16,6 +16,7 @@ blockquote {
 
 h1,h2,h3,h4,h5,h6 {
     font-family: "Cabin", "Helvetica Neue", arial, sans-serif;
+    font-weight: bold;
     margin: 1em 0;
 }
 
@@ -32,6 +33,18 @@ h2 {
 
 h3 {
     font-size: 1.17em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: 0.83em;
+}
+
+h6 {
+    font-size: 0.67em;
 }
 
 code {
