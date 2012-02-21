@@ -13,19 +13,19 @@
         converter.hooks.chain("postConversion", sanitizeHtml);
         converter.hooks.chain("postConversion", balanceTags);
         return converter;
-    }
+    };
 
     function sanitizeHtml(html) {
         return html.replace(/<[^>]*>?/gi, sanitizeTag);
     }
 
     // (tags that can be opened/closed) | (tags that stand alone)
-    var basic_tag_whitelist = /^(<\/?(b|blockquote|code|del|dd|dl|dt|em|h1|h2|h3|h4|h5|h6|i|kbd|li|ol|p|pre|s|sup|sub|strong|strike|ul)>|<(br|hr)\s?\/?>)$/i;
+    var basic_tag_whitelist = /^(<\/?(b|blockquote|code|del|dd|dl|dt|em|h1|h2|h3|h4|h5|h6|i|kbd|li|ol|p|pre|s|samp|sup|sub|strong|strike|ul)>|<(br|hr)\s?\/?>)$/i;
     // <a href="url..." optional title>|</a>
-    var a_white = /^(<a\shref="((https?|ftp):\/\/|\/)[-A-Za-z0-9+&@#\/%?=~_|!:,.;\(\)]+"(\stitle="[^"<>]+")?\s?>|<\/a>)$/i;
+    var a_white = /^(<a\shref="((https?|ftp):\/\/|\/)[\-A-Za-z0-9+&@#\/%?=~_|!:,.;\(\)]+"(\stitle="[^"<>]+")?\s?>|<\/a>)$/i;
 
     // <img src="url..." optional width  optional height  optional alt  optional title
-    var img_white = /^(<img\ssrc="(https?:\/\/|\/)[-A-Za-z0-9+&@#\/%?=~_|!:,.;\(\)]+"(\swidth="\d{1,3}")?(\sheight="\d{1,3}")?(\salt="[^"<>]*")?(\stitle="[^"<>]*")?\s?\/?>)$/i;
+    var img_white = /^(<img\ssrc="(https?:\/\/|\/)[\-A-Za-z0-9+&@#\/%?=~_|!:,.;\(\)]+"(\swidth="\d{1,3}")?(\sheight="\d{1,3}")?(\salt="[^"<>]*")?(\stitle="[^"<>]*")?\s?\/?>)$/i;
 
     function sanitizeTag(tag) {
         if (tag.match(basic_tag_whitelist) || tag.match(a_white) || tag.match(img_white))
@@ -44,7 +44,7 @@
     /// </summary>
     function balanceTags(html) {
 
-        if (html == "")
+        if (html === "")
             return "";
 
         var re = /<\/?\w+[^>]*(\s|$|>)/g;
@@ -54,7 +54,7 @@
 
         // no HTML tags present? nothing to do; exit now
         var tagcount = (tags || []).length;
-        if (tagcount == 0)
+        if (tagcount === 0)
             return html;
 
         var tagname, tag;
@@ -97,7 +97,7 @@
 
         // delete all orphaned tags from the string
 
-        var ctag = 0;
+        ctag = 0;
         html = html.replace(re, function (match) {
             var res = tagremove[ctag] ? "" : match;
             ctag++;
