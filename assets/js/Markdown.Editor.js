@@ -245,6 +245,7 @@
         this.buttonBar = doc.getElementById("wmd-button-bar" + postfix);
         this.preview = doc.getElementById("wmd-preview" + postfix);
         this.input = doc.getElementById("wmd-input" + postfix);
+        this.generatedHtml = doc.getElementById("wmd-html" + postfix);
     }
 
     // Returns true if the DOM element is visible, false if it's hidden.
@@ -893,6 +894,9 @@
             var sibling = preview.nextSibling;
             parent.removeChild(preview);
             preview.innerHTML = text;
+            if (panels.generatedHtml) {
+                panels.generatedHtml.value = text;
+            }
             if (!sibling)
                 parent.appendChild(preview);
             else
@@ -901,6 +905,9 @@
 
         var nonSuckyBrowserPreviewSet = function (text) {
             panels.preview.innerHTML = text;
+            if (panels.generatedHtml) {
+                panels.generatedHtml.value = text;
+            }
         };
 
         var previewSetter;
