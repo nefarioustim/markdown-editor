@@ -80,6 +80,7 @@ pre code {
 
 tt, code, kbd, samp {
     font-family: menlo, monaco, courier, monospace;
+    font-size: 75%;
 }
 
 samp {
